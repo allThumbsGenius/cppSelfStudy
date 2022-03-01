@@ -18,6 +18,11 @@ int main(){
 
 int getBreakEvenPoint(int fixedCost, int variableCost, int price){
 	int breakEvenPoint;
+
+	if(price - variableCost == 0){
+		return -1;
+	}
+
 	breakEvenPoint = (fixedCost) / (price - variableCost) + 1;
 	if(breakEvenPoint < 0){
 		return -1;
