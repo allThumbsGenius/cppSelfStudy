@@ -39,7 +39,7 @@ int main(){
 
 	int curruntFinishingTime = meetings[0].finishingTime;
 	
-	for(int i = 0; i < n; ++i){
+	for(int i = 1; i < n; ++i){
 		if(curruntFinishingTime <= meetings[i].startingTime){
 			curruntFinishingTime = meetings[i].finishingTime;
 			++count;
