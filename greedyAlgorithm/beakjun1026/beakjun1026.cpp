@@ -12,9 +12,10 @@ void vectorInput(vector<int> &v, int N){
 	}
 }
 
-int findIndexOfNum(vector<int> v, int n){
+int findIndexOfNum(vector<int> &v, int n){
 	vector<int>::iterator iter;
 	iter = find(v.begin(), v.end(), n);
+	*iter = -1;
 	return iter - v.begin();
 }
 
@@ -38,15 +39,17 @@ int main(){
 
 	vector<int> tempA;
 	vector<int> tempB;
+	vector<int> tempBTwo;
 
 	tempA = A;
 	tempB = B;
+	tempBTwo = B;
 	
 	sort(tempA.begin(), tempA.end());
 	sort(tempB.begin(), tempB.end(), greater<>());
 
 	for(int i = 0; i < N; i++){
-		A[findIndexOfNum(B, tempB[i])] = tempA[i];
+		A[findIndexOfNum(tempBTwo, tempB[i])] = tempA[i];
 	}
 
 	cout << vectorMul(A, B, N);
